@@ -238,7 +238,9 @@ def install_packages():
 
 
 def install_python_packages(packages):
-    command = 'pip install --quiet --upgrade --force-reinstall ' + ' '.join(packages)
+    command = 'pip install --quiet --upgrade --force-reinstall ' + \
+        '--trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org ' + \
+        ' '.join(packages)
     Command(command, "Installing python packages", exit_on_failure=True, print_command=True).run()
 
 
